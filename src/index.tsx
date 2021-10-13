@@ -1,13 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const client = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode> We won't use strict mode as it conflicts with material UI (for now)
+  <QueryClientProvider client={client}>
+    <App />,
+  </QueryClientProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
